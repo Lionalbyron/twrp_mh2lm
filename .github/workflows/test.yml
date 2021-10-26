@@ -30,8 +30,8 @@ jobs:
         curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo > ~/bin/repo
         sudo cp ~/bin/repo /bin/repo
         sudo chmod a+x /bin/repo
-		 export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo'
-		
+        export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo'
+	
     - name: config  global url
       run : | 
         git config --global url.https://mirrors.bfsu.edu.cn/git/AOSP/.insteadof https://android.googlesource.com/
