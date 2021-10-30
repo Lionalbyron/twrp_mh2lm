@@ -21,23 +21,27 @@ jobs:
 
     - name: apt update
       run : |
+        pwd
         sudo apt update
         sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev git python3 python
         
     - name: repo
       run : |
+        pwd
         mkdir -p ~/bin
         curl https://mirrors.tuna.tsinghua.edu.cn/git/git-repo > ~/bin/repo
+        pwd
         sudo cp ~/bin/repo /bin/repo
         sudo chmod a+x /bin/repo
         export REPO_URL='https://mirrors.tuna.tsinghua.edu.cn/git/git-repo'
-
     - name: config  global url
       run : | 
         git config --global url.https://mirrors.bfsu.edu.cn/git/AOSP/.insteadof https://android.googlesource.com/
         git config --global url.https://hub.fastgit.org/.insteadof https://github.com/
-
+        pwd
     - name: repo sync
       run: |
+        pwd
         mkdir twrp
         cd twrp
+        pwd
