@@ -51,6 +51,5 @@ jobs:
         ls
         cd twrp_mh2lm
         pwd
-#
         ls
         pwd
