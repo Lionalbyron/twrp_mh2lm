@@ -44,5 +44,5 @@ jobs:
         pwd
         mkdir op
         git clone https://github.com/Lionalbyron/twrp_mh2lm/
-        ls ./twrp_mh2lm
+        ls twrp_mh2lm
         pwd
