@@ -43,6 +43,7 @@ jobs:
       run: |
         pwd
         mkdir op
+        apt install git -y
         git clone https://github.com/Lionalbyron/twrp_mh2lm.git
         ls
         ls twrp_mh2lm
@@ -50,6 +51,6 @@ jobs:
         ls
         cd twrp_mh2lm
         pwd
-        cd twrp_mh2lm
+  #      cd twrp_mh2lm
         ls
         pwd
