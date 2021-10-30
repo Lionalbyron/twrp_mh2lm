@@ -43,6 +43,6 @@ jobs:
       run: |
         pwd
         mkdir op
-        git clone https://github.com/Lionalbyron/twrp_mh2lm/.git
+        git clone https://github.com/Lionalbyron/twrp_mh2lm/
         ls
         pwd
