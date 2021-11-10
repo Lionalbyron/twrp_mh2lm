@@ -37,7 +37,6 @@ jobs:
     - name: config  global url
       run : | 
         git config --global url.https://mirrors.bfsu.edu.cn/git/AOSP/.insteadof https://android.googlesource.com/
-#git config --global url.https://hub.fastgit.org/.insteadof https://github.com/
         pwd
     - name: repo sync
       run: |
