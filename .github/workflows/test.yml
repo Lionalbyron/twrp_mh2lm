@@ -52,6 +52,15 @@ jobs:
         cd twrp_mh2lm
         pwd
         ls
-        cd de
+        cd device
+        ls
+        pwd
+        cd lge
+        ls
+        pwd
+        cd mh2lm
+        ls
+        pwd
+        cd prebuilt
         ls
         pwd
