@@ -22,8 +22,8 @@ jobs:
     - name: apt update
       run : |
         pwd
-#        sudo apt update
-#        sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev git python3 python
+        sudo apt update
+        sudo apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev git python3 python
         
     - name: repo
       run : |
@@ -38,28 +38,32 @@ jobs:
       run : | 
         git config --global url.https://mirrors.bfsu.edu.cn/git/AOSP/.insteadof https://android.googlesource.com/
         pwd
-    - name: repo sync
+    - name: get device
       run: |
         pwd
-        mkdir op
-        sudo apt install git -y
-        git clone https://github.com/Lionalbyron/twrp_mh2lm/device
+        git clone https://github.com/Lionalbyron/twrp_mh2lm
+
+    - name: repo sync
+      run: |
+        mkdir twrp
+        cd twrp
         ls
-        ls twrp_mh2lm
-        pwd
+        git config --global http.sslverify false
+        git config --global https.sslverify false      
+        repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+        repo sync
         ls
-        cd twrp_mh2lm
-        pwd
+        cp -R ../twrp_mh2lm/device/* ./device
         ls
-        cd device
-        ls
-        pwd
-        cd lge
-        ls
-        pwd
-        cd mh2lm
-        ls
-        pwd
-        cd prebuilt
-        ls
-        pwd
+        ls device
+        ls device/lge
+        ls device/lge/mh2lm
+        ls device/lge/mh2lm/prebuit
+        
+    - name: bianyikaishi
+      run : |
+        . build/envsetup.sh
+        lunch twrp_mh2lm-eng
+        export ALLOW_MISSING_DEPENDENCIES=true
+        export LC_ALL="C"
+        mka bootimage
