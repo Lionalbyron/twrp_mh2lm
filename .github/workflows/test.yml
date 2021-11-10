@@ -43,7 +43,7 @@ jobs:
         pwd
         mkdir op
         sudo apt install git -y
-        git clone https://github.com/Lionalbyron/twrp_mh2lm
+        git clone https://github.com/Lionalbyron/twrp_mh2lm/device
         ls
         ls twrp_mh2lm
         pwd
