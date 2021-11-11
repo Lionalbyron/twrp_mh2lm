@@ -61,8 +61,8 @@ jobs:
         git config --global https.sslverify false      
 #        repo init --depth=1 -u
 #		git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
-#        repo sync
 
+        ls
         sudo cp -R ../twrp_mh2lm/device/* ./device
         ls
         ls device
