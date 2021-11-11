@@ -1,3 +1,4 @@
+
 #
 # This is free software, lisence use MIT.
 #
@@ -11,6 +12,16 @@ on:
   schedule:
     - cron: 30 19 * * *
 
+env:
+  REPO_URL: https://github.com/Lionalbyron/twrp_mh2lm
+  REPO_BRANCH: master
+  SSH_ACTIONS: false
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: false
+  UPLOAD_COWTRANSFER: true
+  UPLOAD_WETRANSFER: true
+  TZ: Asia/Shanghai
+  
 jobs:
 
   merge:
@@ -41,8 +52,7 @@ jobs:
     - name: get device
       run: |
         pwd
-        git clone https://github.com/Lionalbyron/twrp_mh2lm
-
+#        git clone https://github.com/Lionalbyron/twrp_mh2lm
     - name: repo sync
       run: |
         mkdir twrp
@@ -50,20 +60,13 @@ jobs:
         ls
         git config --global http.sslverify false
         git config --global https.sslverify false      
-        repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
-        repo sync
+#        repo init --depth=1 -u
+#		git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
+#        repo sync
         ls
-        cp -R ../twrp_mh2lm/device/* ./device
+        sudo cp -R ../twrp_mh2lm/device/* ./device
         ls
         ls device
         ls device/lge
         ls device/lge/mh2lm
         ls device/lge/mh2lm/prebuit
-        
-    - name: bianyikaishi
-      run : |
-        . build/envsetup.sh
-        lunch twrp_mh2lm-eng
-        export ALLOW_MISSING_DEPENDENCIES=true
-        export LC_ALL="C"
-        mka bootimage
